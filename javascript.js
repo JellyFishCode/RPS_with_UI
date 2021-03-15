@@ -17,6 +17,21 @@ computerPick.textContent = "Computerauswahl: ";
 computerPick.style.cssText = "color: #08402D;";
 pickID.appendChild(computerPick);
 
+const result = document.createElement("p")
+result.textContent = "_____";
+result.style.cssText = "color: white";
+result.style.background = "white";
+result.style.width = "50%";
+result.style.margin = "0 auto";
+function resultFormat(){
+    result.style.cssText = "color: black";
+    result.style.background = "white";
+    result.style.width = "50%";
+    result.style.margin = "0 auto";
+}
+
+pickID.appendChild(result);
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -41,6 +56,8 @@ function playRound(playerChoice){
 
     if(spielerAuswahl === computerAuswahl){
     console.log("Unentschieden");
+    result.textContent = "Unentschieden";
+    resultFormat();
     }
     if(
         (spielerAuswahl === "STEIN" && computerAuswahl === "SCHERE") ||
@@ -50,6 +67,8 @@ function playRound(playerChoice){
         playerScore += 1;
         scoreDisplay.textContent = "Spielstand:   Spieler " + playerScore + " : " + computerScore + " Computer";
         console.log("Du gewinnst die Runde");
+        result.textContent = spielerAuswahl + " schlägt " + computerAuswahl + ". Du gewinnst die Runde";
+        resultFormat();
     }
     if(
         (computerAuswahl === "STEIN" && spielerAuswahl === "SCHERE") ||
@@ -59,6 +78,8 @@ function playRound(playerChoice){
         computerScore += 1;
         scoreDisplay.textContent = "Spielstand:   Spieler " + playerScore + " : " + computerScore + " Computer";
         console.log("Du verlierst die Runde");
+        result.textContent = computerAuswahl + " schlägt " + spielerAuswahl + ". Du verlierst die Runde";
+        resultFormat();
     }  
     if(playerScore === 5 || computerScore == 5){
         if(playerScore > computerScore){
@@ -70,6 +91,13 @@ function playRound(playerChoice){
         playerScore = 0;
         computerScore = 0;
         scoreDisplay.textContent = "Spielstand:   Spieler " + playerScore + " : " + computerScore + " Computer";
+        result.textContent = "_____";
+        result.style.cssText = "color: white";
+        result.style.background = "white";
+        result.style.width = "50%";
+        result.style.margin = "0 auto";
+        
+
     }        
 
 }
@@ -88,6 +116,7 @@ buttonPaper.addEventListener('click', () => {
 });
 
 // Additional Stuff
+/*
 const btn = document.querySelector("#btn");
 btn.addEventListener('click', function(e){
     e.target.style.background = 'white';
@@ -104,3 +133,4 @@ const copy = document.querySelector("#copy");
 copy.addEventListener('copy', function(e){
     window.alert("Do not copy this title... for whatever reason.");
 });
+*/
