@@ -1,0 +1,26 @@
+/* 
+11.03.2021
+Rock Paper and Scissors with UI
+*/
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #20B383;
+}
+#bodyCSS{
+    width: 80%;
+    background: #43D7A6;
+    border-radius: 20px;
+    text-align: center;
+    margin: 0 auto;
+}
+.container{
+    margin: 2% 2%;
+    padding: 2% 0;
+}
+.RPS{
+    max-width: 20%;
+}
+.icons{
+    display: hidden;
+    max-width: 10%;
+}
